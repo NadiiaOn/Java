@@ -13,12 +13,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
 
-        String accountHolder = scanner.nextLine();
-        if (accountHolder != null  && ! accountHolder.trim().isEmpty()) {
+        String name = scanner.nextLine();
+        if (name != null && !name.trim().isEmpty()) {
             System.out.println();
-            System.out.println(" Hi " + accountHolder + "! \n I am happy to meet you!");
-        }
-        else{
+            System.out.println(" Hi " + name + "! \n I am happy to meet you!");
+        } else {
             System.out.println();
             System.out.println("You need to write your name...");
         }
@@ -28,11 +27,10 @@ public class Main {
         System.out.print("What is your phone number? ");
 
         Long phoneNumber = scanner2.nextLong();
-        if (phoneNumber>0 ) {
+        if (phoneNumber > 0) {
             System.out.println();
             System.out.println(" This is your number " + phoneNumber);
-        }
-        else{
+        } else {
             System.out.println();
             System.out.println("You need to write your phone number");
         }
@@ -42,11 +40,10 @@ public class Main {
         System.out.print("How old are you? ");
 
         Byte age = scanner3.nextByte();
-        if (age >= 18 && age <=120 ) {
+        if (age >= 18 && age <= 120) {
             System.out.println();
             System.out.println("You have the legal right to manage your account. ");
-        }
-        else{
+        } else {
             System.out.println();
             System.out.println("You need to write your age");
         }
@@ -59,21 +56,25 @@ public class Main {
         if (emailOfHolder.contains("@")) {
             System.out.println();
             System.out.println("Thank you for the information!");
-        }
-        else{
+        } else {
             System.out.println();
             System.out.println("You need to write your email address");
         }
         System.out.println("What do you want to do further?");
-    }
-public static class ChoiceSwitch {
-    public static void main(String[] args) {
+
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Choose the number for further actions: \n 1. Make a new account. \n 2. Change information in a current account. \n 3. Take the information from the current account. \n 4. Put the money into your account. \n 5. Take the money from your account. \n 6. Other action with the account.");
-
-
+        System.out.println("""
+                "Choose the number for further actions:
+                1. Make a new account.
+                2. Change information in a current account.
+                3. Take the information from the current account.
+                4. Put the money into your account.
+                5. Take the money from your account.
+                6. Other action with the account.
+                """);
+        
         int variants = keyboard.nextInt();
-        switch (variants){
+        switch (variants) {
             case 1:
                 System.out.println("Make a new account.");
                 break;
@@ -93,11 +94,8 @@ public static class ChoiceSwitch {
                 System.out.println("Other action with the account.");
                 break;
         }
+        var accountHolder = new AccountHolder(name, phoneNumber, age, 0, "my address", emailOfHolder);
+        accountHolder.personalAddress();
+        System.out.println(accountHolder.getAge());
     }
-}
-
-
-
-
-
 }
