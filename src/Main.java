@@ -39,7 +39,7 @@ public class Main {
 
         Scanner scanner3 = new Scanner(System.in);
         System.out.println();
-        System.out.print("How old are you?");
+        System.out.print("How old are you? ");
 
         Byte age = scanner3.nextByte();
         if (age >= 18 && age <=120 ) {
@@ -66,9 +66,37 @@ public class Main {
         }
         System.out.println("What do you want to do further?");
     }
+class ChoiceSwitch {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Choose the number for further actions: \n 1. Make a new account. \n 2. Change information in a current account. \n 3. Take the information from the current account. \n 4. Put the money into your account. \n 5. Take the money from your account. \n 6. Other action with the account.");
 
 
-    
+        int variants = keyboard.nextInt();
+        switch (variants){
+            case 1:
+                System.out.println("Make a new account.");
+                break;
+            case 2:
+                System.out.println("Change information in a current account.");
+                break;
+            case 3:
+                System.out.println("Take the information from the current account.");
+                break;
+            case 4:
+                System.out.println("Put money into your account.");
+                break;
+            case 5:
+                System.out.println("Take the money from your account.");
+                break;
+            default:
+                System.out.println("Other action with the account.");
+                break;
+        }
+    }
+}
+
+
 
 
 
