@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -11,11 +12,63 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
+
         String kontoÄgare = scanner.nextLine();
+        if (kontoÄgare != null  && ! kontoÄgare.trim().isEmpty()) {
+            System.out.println();
+            System.out.println(" Hi " + kontoÄgare + "! \n I am happy to meet you!");
+        }
+        else{
+            System.out.println();
+            System.out.println("You need to write your name...");
+        }
+
+        Scanner scanner2 = new Scanner(System.in);
         System.out.println();
-        System.out.println(" Hi " + kontoÄgare + "! \n I am happy to meet you!");
+        System.out.print("What is your phone number? ");
+
+        Long phoneNumber = scanner2.nextLong();
+        if (phoneNumber>0 ) {
+            System.out.println();
+            System.out.println(" This is your number " + phoneNumber);
+        }
+        else{
+            System.out.println();
+            System.out.println("You need to write your phone number");
+        }
+
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.println();
+        System.out.print("How old are you?");
+
+        Byte age = scanner3.nextByte();
+        if (age >= 18 && age <=120 ) {
+            System.out.println();
+            System.out.println("You have the legal right to manage your account. ");
+        }
+        else{
+            System.out.println();
+            System.out.println("You need to write your age");
+        }
+
+        Scanner scanner4 = new Scanner(System.in);
+        System.out.println();
+        System.out.print("Please, write your email address?");
+
+        String emailOfÄgare = scanner4.nextLine();
+        if (!emailOfÄgare.isEmpty()&& emailOfÄgare.contains("@")) {
+            System.out.println();
+            System.out.println("Thank you for the information!");
+        }
+        else{
+            System.out.println();
+            System.out.println("You need to write your email address");
+        }
+        System.out.println("What do you want to do further?");
     }
 
+
+    
 
 
 
