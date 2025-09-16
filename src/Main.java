@@ -1,4 +1,4 @@
-import java.util.Date;
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,10 +13,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
 
-        String kontoÄgare = scanner.nextLine();
-        if (kontoÄgare != null  && ! kontoÄgare.trim().isEmpty()) {
+        String accountHolder = scanner.nextLine();
+        if (accountHolder != null  && ! accountHolder.trim().isEmpty()) {
             System.out.println();
-            System.out.println(" Hi " + kontoÄgare + "! \n I am happy to meet you!");
+            System.out.println(" Hi " + accountHolder + "! \n I am happy to meet you!");
         }
         else{
             System.out.println();
@@ -55,8 +55,8 @@ public class Main {
         System.out.println();
         System.out.print("Please, write your email address?");
 
-        String emailOfÄgare = scanner4.nextLine();
-        if (!emailOfÄgare.isEmpty()&& emailOfÄgare.contains("@")) {
+        String emailOfHolder = scanner4.nextLine();
+        if (emailOfHolder.contains("@")) {
             System.out.println();
             System.out.println("Thank you for the information!");
         }
@@ -66,7 +66,7 @@ public class Main {
         }
         System.out.println("What do you want to do further?");
     }
-class ChoiceSwitch {
+public static class ChoiceSwitch {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Choose the number for further actions: \n 1. Make a new account. \n 2. Change information in a current account. \n 3. Take the information from the current account. \n 4. Put the money into your account. \n 5. Take the money from your account. \n 6. Other action with the account.");
