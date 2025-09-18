@@ -1,3 +1,5 @@
+package PersonalHomeWork;
+
 import java.math.BigDecimal;
 
 public class PersonalCountOfMoney {

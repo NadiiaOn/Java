@@ -1,3 +1,4 @@
+package PersonalHomeWork;
 
 import java.util.Scanner;
 
@@ -72,7 +73,7 @@ public class Main {
                 5. Take the money from your account.
                 6. Other action with the account.
                 """);
-        
+
         int variants = keyboard.nextInt();
         switch (variants) {
             case 1:

@@ -1,3 +1,5 @@
+package PersonalHomeWork;
+
 public enum Spending {
     FOOD,
     FREE_TIME,
