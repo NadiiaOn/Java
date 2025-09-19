@@ -9,7 +9,7 @@ public class Main {
         System.out.println(" =============== Hello! ==============  ");
         System.out.println("\n I am your personal-finance application!");
 
-      /*  Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
         String name = scanner.nextLine();
 
@@ -51,37 +51,39 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("""
                 \n Choose the number for further actions:
-                1.Make a new account.
-                2. Change information in a current account.
-                3. Take the information from the current account.
-                4. Put the money into your account.
-                5. Take the money from your account.
+                1. Add a new transaction by yourself.
+                2. Delete a transaction.
+                3. View current account balance.
+                4. View money some was spent (annually, monthly, weekly and daily).
+                5. View income (annually, monthly, weekly and daily).
                 6. Other action with the account.
                 """);
 
         int variants = keyboard.nextInt();
         switch (variants) {
             case 1:
-                System.out.println("Make a new account.");
+                System.out.println("Add a new transaction by yourself.");
                 break;
             case 2:
-                System.out.println("Change information in a current account.");
+                System.out.println("Delete a transaction.");
                 break;
             case 3:
-                System.out.println("Take the information from the current account.");
+                System.out.println("View current account balance. ");
                 break;
             case 4:
-                System.out.println("Put money into your account.");
+                System.out.println("View money some was spent (annually, monthly, weekly and daily)");
                 break;
             case 5:
-                System.out.println("Take the money from your account.");
+                System.out.println("View income (annually, monthly, weekly and daily).");
                 break;
             default:
                 System.out.println("Other action with the account.");
                 break;
         }
-        det funkar
-       */
+        // разветвить свитч через while: if, else if to make the actions.
+        //after that show again the list of action + possibilities to finish the whole process.
+        // annually, monthly, weekly and daily choose throw the new switch ant than while: if, else if to make the actions.
+
 
        /* var accountHolder = new AccountHolder(name, phoneNumber, age, 0, "my address", emailOfHolder);
         accountHolder.personalAddress();
