@@ -5,20 +5,20 @@ import java.math.BigDecimal;
 public class PersonalCountOfMoney {
 
     public String type; //debit, credit
-    public BigDecimal Balance;
+    public BigDecimal balance;
     public String status;
 
     public PersonalCountOfMoney(String type, BigDecimal balance, String status) {
         this.type = type;
-        this.Balance = balance;
+        this.balance = balance;
         this.status = status;
     }
 
     public BigDecimal getBalance() {
-        return Balance;
+        return balance;
     }
 
     public void setBalance(BigDecimal balance) {
-        this.Balance = balance;
+        this.balance = balance;
     }
 }
