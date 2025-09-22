@@ -2,6 +2,7 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDate;
 
 public class Transaction {
     public Integer id;
@@ -21,15 +22,13 @@ public class Transaction {
     }
 
     public void checkTheAmmountOfMoney() {
-        System.out.println("The amount of money on " + date + "is " + amount);
+        System.out.println("The amount of money on " + LocalDate + "is " + amount);
     }
 
     public BigDecimal transitionsForTheDay() {
-        System.out.println("The transitions for today (" + date + ")" + "is:"); //end up expression efter is ...
+        System.out.println("The transitions for today (" + LocalDate + ")" + "is: "); //end up expression efter is ...
         return amount;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
+
 }

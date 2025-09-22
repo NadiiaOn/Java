@@ -9,11 +9,11 @@ public class Main {
         System.out.println(" =============== Hello! ==============  ");
         System.out.println("\n I am your personal-finance application!");
 
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
         String name = scanner.nextLine();
 
-        if (name != null && !name.trim().isEmpty()) {
+        if (!name.trim().isEmpty()) {
             System.out.println("\n Hi, " + name + "! \n I am happy to meet you!");
         } else {
             System.out.println("\n You need to write your name...");
@@ -42,7 +42,7 @@ public class Main {
         System.out.print("\n Please, write your email address?");
         String emailOfHolder = scanner4.nextLine();
 
-        if (emailOfHolder.contains("@")) {
+        if (emailOfHolder.contains("@") && emailOfHolder.contains(".")) {
             System.out.println("\n Thank you for the information!");
         } else {
             System.out.println("\n You need to write your email address");
@@ -63,6 +63,8 @@ public class Main {
         switch (variants) {
             case 1:
                 System.out.println("Add a new transaction by yourself.");
+
+
                 break;
             case 2:
                 System.out.println("Delete a transaction.");
@@ -77,7 +79,7 @@ public class Main {
                 System.out.println("View income (annually, monthly, weekly and daily).");
                 break;
             default:
-                System.out.println("Other action with the account.");
+                System.out.println("Select an option");
                 break;
         }
         // разветвить свитч через while: if, else if to make the actions.
@@ -90,5 +92,10 @@ public class Main {
         System.out.println(accountHolder.getAge());
         exempel för mig
         */
+
+        for (variants == 1) {
+
+        }
     }
+
 }

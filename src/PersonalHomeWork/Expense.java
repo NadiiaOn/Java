@@ -1,6 +1,6 @@
 package PersonalHomeWork;
 
-public enum Spending {
+public enum Expense {
     FOOD,
     FREE_TIME,
     CAR,
