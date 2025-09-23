@@ -2,29 +2,35 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Transaction {
-    private Integer id;
+    private Integer transactionID;
     private String transactionType;
     private BigDecimal amount;
     private LocalDate date;
     private String description;
 
-    public Transaction(int id, String transactionType, BigDecimal amount, LocalDate date, String description) {
-        this.id = id;
+    public Transaction(int transactionID, String transactionType, BigDecimal amount, LocalDate date, String description) {
+        this.transactionID = transactionID;
         this.transactionType = transactionType; // think about this I need it or not
         this.amount = amount;
         this.date = date;
         this.description = description;
+
         //write more methods for this class
-    }
-    public Integer getId() {
-        return id;
+
+
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(Integer transactionID) {
+        this.transactionID = transactionID;
     }
 
     public String getTransactionType() {
@@ -60,9 +66,10 @@ public class Transaction {
     }
 
     public void addTransaction(Transaction transaction) {
-        Transaction newTransaction = new Transaction(id++, transactionType, amount, LocalDate.now(), description);
-        //transaction.add(newTransaction);
+        Transaction newTransaction = new Transaction(transactionID++, transactionType, amount, LocalDate.now(), description);
+
         System.out.println("Transaction added successfully." + newTransaction);
+
 
     }
     /*public void checkTheAmmountOfMoney() {
