@@ -2,33 +2,78 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDate;
+
 
 public class Transaction {
-    public Integer id;
-    public String description;
-    public BigDecimal amount;
-    public LocalDate date;
-    public String type; //"income" or "expense"
+    private Integer id;
+    private String transactionType;
+    private BigDecimal amount;
+    private LocalDate date;
+    private String description;
 
-    public Transaction(Integer id, String description, BigDecimal amount, LocalDate date, String type) {
+    public Transaction(int id, String transactionType, BigDecimal amount, LocalDate date, String description) {
         this.id = id;
-        this.description = description;
+        this.transactionType = transactionType; // think about this I need it or not
         this.amount = amount;
         this.date = date;
-        this.type = type;
-
+        this.description = description;
         //write more methods for this class
     }
+    public Integer getId() {
+        return id;
+    }
 
-    public void checkTheAmmountOfMoney() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        Transaction newTransaction = new Transaction(id++, transactionType, amount, LocalDate.now(), description);
+        //transaction.add(newTransaction);
+        System.out.println("Transaction added successfully." + newTransaction);
+
+    }
+    /*public void checkTheAmmountOfMoney() {
         System.out.println("The amount of money on " + LocalDate + "is " + amount);
     }
 
     public BigDecimal transitionsForTheDay() {
         System.out.println("The transitions for today (" + LocalDate + ")" + "is: "); //end up expression efter is ...
         return amount;
-    }
+
+     */
 
 
 }

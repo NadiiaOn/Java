@@ -6,5 +6,5 @@ public enum Expense {
     CAR,
     SAVINGS,
     TRAVEL,
-    OTHER_SPENDING
+    OTHER_EXPENSE
 }

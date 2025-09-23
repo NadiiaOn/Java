@@ -1,12 +1,13 @@
 package PersonalHomeWork;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println(" =============== Hello! ==============  ");
+       /* System.out.println(" =============== Hello! ==============  ");
         System.out.println("\n I am your personal-finance application!");
 
         Scanner scanner = new Scanner(System.in);
@@ -47,9 +48,12 @@ public class Main {
         } else {
             System.out.println("\n You need to write your email address");
         }
+        // finish program if something went wrong before; try-catch
+
+        */
 
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("""
+        System.out.print("""
                 \n Choose the number for further actions:
                 1. Add a new transaction by yourself.
                 2. Delete a transaction.
@@ -62,10 +66,38 @@ public class Main {
         int variants = keyboard.nextInt();
         switch (variants) {
             case 1:
-                System.out.println("Add a new transaction by yourself.");
+                System.out.println("Enter the amount of money you want to add: ");
+                BigDecimal amount = keyboard.nextBigDecimal();
+                keyboard.nextLine();
+                System.out.println("Write the transactions type (income or expense): " );
+                String transactionType = keyboard.nextLine();
 
+                if (transactionType.equals("income") && amount.compareTo(BigDecimal.ZERO) > 0) {
+                    System.out.println("Enter the type of income \n" +
+                            " SALARY,\n" +
+                            "    INTEREST_FROM_INVESTMENTS,\n" +
+                            "    PRESENTS,\n" +
+                            "    SCHOLARSHIP,\n" +
+                            "    OTHER_INCOME. ");
+                    String incomeType = keyboard.nextLine();
+                    // addTransaction method
+                }
+                else if (transactionType.equals("expense") && amount.compareTo(BigDecimal.ZERO) > 0) {
+                    System.out.println( "Enter the type of expense \n" +
+                            "FOOD,\n" +
+                            "    FREE_TIME,\n" +
+                            "    CAR,\n" +
+                            "    SAVINGS,\n" +
+                            "    TRAVEL,\n" +
+                            "    OTHER_EXPENSE.");
+                    String expenseType = keyboard.nextLine();
+                    // addTransaction method
+
+                }
 
                 break;
+
+
             case 2:
                 System.out.println("Delete a transaction.");
                 break;
@@ -93,9 +125,7 @@ public class Main {
         exempel för mig
         */
 
-        for (variants == 1) {
 
-        }
     }
 
 }
