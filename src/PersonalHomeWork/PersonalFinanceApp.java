@@ -4,8 +4,21 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PesonalFinanceApp {
-    public static void main(String[] args) {
+public class PersonalFinanceApp {
+    private ArrayList<PersonalCountOfMoney> accounts;
+    private ArrayList<Transactions> transactions;
+    private int countID; //transactions counter
+
+    public PersonalFinanceApp()
+
+    {
+        accounts = new ArrayList<>();
+        transactions = new ArrayList<>();
+        countID = 1;
+
+    }
+
+    public static void personalFinanceApp (String[] args) {
 
         System.out.println(" =============== Hello! ==============  ");
         System.out.println("\n I am your personal-finance application!");
@@ -55,15 +68,15 @@ public class PesonalFinanceApp {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("""
                 \n Choose the number for further actions:
-                1. Add a new transaction by yourself.
-                2. Delete a transaction.
+                1. Add a new transactions by yourself.
+                2. Delete a transactions.
                 3. View current account balance.
                 4. View money some was spent (annually, monthly, weekly and daily).
                 5. View income (annually, monthly, weekly and daily).
                 6. Other action with the account.
                 """);
-        ArrayList<Transaction> transactionList = new ArrayList<>();
-        // transactionList.add(transactionList.set(0, new Transaction()));
+        ArrayList<Transactions> transactionsList = new ArrayList<Transactions>();
+        //transactionsList.add();
         //transactionList.remove(Transaction.getTransactionID());
 
 
@@ -96,13 +109,14 @@ public class PesonalFinanceApp {
 
             case 2:
                 System.out.println();
-                System.out.println("What transaction would you like to delete? ");
+                System.out.println("What transactions would you like to delete? ");
+                //уточнить по чему человек хочет искать трасакцию по сумме, по дате, по ИД (для этого предварительно надо вывести все трансакции с указанием ИД)
 
                 break;
 
             case 3:
                 System.out.println("Current account balance is  ");
-
+                //показывать только сумму баланса
                 break;
 
             case 4:

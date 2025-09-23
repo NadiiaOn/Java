@@ -2,18 +2,16 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 
-
-public class Transaction {
+public class Transactions {
     private Integer transactionID;
     private String transactionType;
     private BigDecimal amount;
     private LocalDate date;
     private String description;
 
-    public Transaction(int transactionID, String transactionType, BigDecimal amount, LocalDate date, String description) {
+    public Transactions(int transactionID, String transactionType, BigDecimal amount, LocalDate date, String description) {
         this.transactionID = transactionID;
         this.transactionType = transactionType; // think about this I need it or not
         this.amount = amount;
@@ -65,10 +63,10 @@ public class Transaction {
         this.description = description;
     }
 
-    public void addTransaction(Transaction transaction) {
-        Transaction newTransaction = new Transaction(transactionID++, transactionType, amount, LocalDate.now(), description);
+    public void addTransaction(Transactions transactions) {
+        Transactions newTransactions = new Transactions(transactionID++, transactionType, amount, LocalDate.now(), description);
 
-        System.out.println("Transaction added successfully." + newTransaction);
+        System.out.println("Transaction added successfully." + newTransactions);
 
 
     }
