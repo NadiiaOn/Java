@@ -5,17 +5,36 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PersonalFinanceApp {
+
+    private int transactionCountID = 0; //transactions counter
+    ArrayList<PersonalCountOfMoney>  PersonalCountOfMoney = new ArrayList<>();
+    ArrayList<Transaction> Transaction = new ArrayList<>();
+
+
+    public ArrayList<PersonalCountOfMoney> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(ArrayList<PersonalCountOfMoney> accounts) {
+        this.accounts = accounts;
+    }
+
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(ArrayList<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
     private ArrayList<PersonalCountOfMoney> accounts;
-    private ArrayList<Transactions> transactions;
-    private int countID; //transactions counter
+    private ArrayList<Transaction> transactions;
 
-    public PersonalFinanceApp()
 
-    {
-        accounts = new ArrayList<>();
-        transactions = new ArrayList<>();
-        countID = 1;
-
+    public PersonalFinanceApp() {
+      //  accounts = new ArrayList<>();
+       // transactions = new ArrayList<>();
+      //  transactionCountID = 0;
     }
 
     public static void personalFinanceApp (String[] args) {
@@ -32,6 +51,7 @@ public class PersonalFinanceApp {
             System.out.println("\n Hi, " + name + "! \n I am happy to meet you!");
         } else {
             System.out.println("\n You need to write your name...");
+
         }
 
         Scanner scanner2 = new Scanner(System.in);
@@ -66,18 +86,13 @@ public class PersonalFinanceApp {
 
 
         Scanner keyboard = new Scanner(System.in);
-        System.out.print("""
-                \n Choose the number for further actions:
-                1. Add a new transactions by yourself.
-                2. Delete a transactions.
-                3. View current account balance.
-                4. View money some was spent (annually, monthly, weekly and daily).
-                5. View income (annually, monthly, weekly and daily).
-                6. Other action with the account.
-                """);
-        ArrayList<Transactions> transactionsList = new ArrayList<Transactions>();
-        //transactionsList.add();
-        //transactionList.remove(Transaction.getTransactionID());
+        System.out.println("\\n Choose the number for further action: ");
+        System.out.println("\t 1. Add a new transactions by yourself.");
+        System.out.println("\t 2. Delete a transactions.");
+        System.out.println("\t 3. View current account balance.");
+        System.out.println("\t 4. View money some was spent (annually, monthly, weekly and daily).");
+        System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
+        System.out.println("\t 6. Other action with the account.");
 
 
         int variants = keyboard.nextInt();
@@ -93,7 +108,7 @@ public class PersonalFinanceApp {
                     System.out.println("Enter the type of income \n" + " SALARY,\n" + "    INTEREST_FROM_INVESTMENTS,\n" + "    PRESENTS,\n" + "    SCHOLARSHIP,\n" + "    OTHER_INCOME. ");
                     String incomeType = keyboard.nextLine();
 
-                    // transactions.add(Transaction);
+
 
                 } else if (transactionType.equals("expense") && amount.compareTo(BigDecimal.ZERO) > 0) {
                     System.out.println("Enter the type of expense \n" + "FOOD,\n" + "    FREE_TIME,\n" + "    CAR,\n" + "    SAVINGS,\n" + "    TRAVEL,\n" + "    OTHER_EXPENSE.");
@@ -103,7 +118,6 @@ public class PersonalFinanceApp {
 
                 String expenseType = keyboard.nextLine();
                 // addTransaction method
-
 
                 break;
 
@@ -115,8 +129,8 @@ public class PersonalFinanceApp {
                 break;
 
             case 3:
-                System.out.println("Current account balance is  ");
-                //показывать только сумму баланса
+                System.out.println("The current balance is ");
+             //add function viewCurrentBalance
                 break;
 
             case 4:
@@ -141,11 +155,7 @@ public class PersonalFinanceApp {
 // annually, monthly, weekly and daily choose throw the new switch ant than while: if, else if to make the actions.
 
 
-       /* var accountHolder = new AccountHolder(name, phoneNumber, age, 0, "my address", emailOfHolder);
-        accountHolder.personalAddress();
-        System.out.println(accountHolder.getAge());
-        exempel för mig
-        */
+
 
 
 
