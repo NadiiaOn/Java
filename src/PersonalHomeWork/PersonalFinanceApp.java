@@ -7,15 +7,15 @@ import java.util.Scanner;
 public class PersonalFinanceApp {
 
     private int transactionCountID = 0; //transactions counter
-    ArrayList<PersonalCountOfMoney>  PersonalCountOfMoney = new ArrayList<>();
-    ArrayList<Transaction> Transaction = new ArrayList<>();
+    private ArrayList<PersonalAccountOfMoney> accounts;
+    private ArrayList<Transaction> transactions;
 
 
-    public ArrayList<PersonalCountOfMoney> getAccounts() {
+    public ArrayList<PersonalAccountOfMoney> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(ArrayList<PersonalCountOfMoney> accounts) {
+    public void setAccounts(ArrayList<PersonalAccountOfMoney> accounts) {
         this.accounts = accounts;
     }
 
@@ -25,16 +25,7 @@ public class PersonalFinanceApp {
 
     public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
-    }
 
-    private ArrayList<PersonalCountOfMoney> accounts;
-    private ArrayList<Transaction> transactions;
-
-
-    public PersonalFinanceApp() {
-      //  accounts = new ArrayList<>();
-       // transactions = new ArrayList<>();
-      //  transactionCountID = 0;
     }
 
     public static void personalFinanceApp (String[] args) {
@@ -45,44 +36,52 @@ public class PersonalFinanceApp {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What is your full name? ");
 
-        String name = scanner.nextLine();
+        String accountHolderName = scanner.nextLine();
 
-        if (!name.trim().isEmpty()) {
-            System.out.println("\n Hi, " + name + "! \n I am happy to meet you!");
+        if (!accountHolderName.trim().isEmpty()) {
+            System.out.println("\n Hi, " + accountHolderName + "! \n I am happy to meet you!");
         } else {
             System.out.println("\n You need to write your name...");
 
         }
 
-        Scanner scanner2 = new Scanner(System.in);
+        Scanner scanner1 = new Scanner(System.in);
         System.out.print("\n What is your phone number? ");
 
-        Long phoneNumber = scanner2.nextLong();
-        if (phoneNumber > 0) {
-            System.out.println("\n This is your number " + phoneNumber);
+        Long accountHolderPhoneNumber = scanner.nextLong();
+        if (accountHolderPhoneNumber > 0) {
+            System.out.println("\n This is your number " + accountHolderPhoneNumber);
         } else {
             System.out.println("\n You need to write your phone number");
         }
 
         Scanner scanner3 = new Scanner(System.in);
         System.out.print("\n How old are you? ");
-        Byte age = scanner3.nextByte();
-        if (age >= 18 && age <= 120) {
+        Byte accountHolderAge = scanner3.nextByte();
+        if (accountHolderAge >= 18 && accountHolderAge <= 120) {
             System.out.println("\n You have the legal right to manage your account. ");
         } else {
             System.out.println("\n You need to write your age");
         }
 
         Scanner scanner4 = new Scanner(System.in);
-        System.out.print("\n Please, write your email address?");
-        String emailOfHolder = scanner4.nextLine();
+        System.out.print("\n Write your account number: ");
+        Long accountNumber = scanner4.nextLong();
 
-        if (emailOfHolder.contains("@") && emailOfHolder.contains(".")) {
-            System.out.println("\n Thank you for the information!");
+        if (accountNumber > 0) {
+            System.out.println("\n Thank you for using your account. ");
         } else {
-            System.out.println("\n You need to write your email address");
+            System.out.println("\n You need to write your account number");
         }
-        // finish program if something went wrong before; try-catch
+
+        Scanner scanner5 = new Scanner(System.in);
+        System.out.print("\n Write your account name: ");
+        String accountName = scanner5.nextLine();
+        if (!accountName.trim().isEmpty()) {
+            System.out.println("\n Your account name is " + accountName);
+        } else {
+            System.out.println("\n You need to write your account name");
+        }
 
 
         Scanner keyboard = new Scanner(System.in);
@@ -104,16 +103,26 @@ public class PersonalFinanceApp {
                 System.out.println("Write the transactions type (income or expense): ");
                 String transactionType = keyboard.nextLine();
 
-                if (transactionType.equals("income") && amount.compareTo(BigDecimal.ZERO) > 0) {
-                    System.out.println("Enter the type of income \n" + " SALARY,\n" + "    INTEREST_FROM_INVESTMENTS,\n" + "    PRESENTS,\n" + "    SCHOLARSHIP,\n" + "    OTHER_INCOME. ");
+                if (transactionType.equalsIgnoreCase("income") && amount.compareTo(BigDecimal.ZERO) > 0) {
+                    System.out.println("Enter the type of income: \n"
+                            + " salary,\n"
+                            + "interest from the investments,\n"
+                            + "presents,\n"
+                            + "scholarship,\n"
+                            + "other income. ");
                     String incomeType = keyboard.nextLine();
 
 
-
-                } else if (transactionType.equals("expense") && amount.compareTo(BigDecimal.ZERO) > 0) {
-                    System.out.println("Enter the type of expense \n" + "FOOD,\n" + "    FREE_TIME,\n" + "    CAR,\n" + "    SAVINGS,\n" + "    TRAVEL,\n" + "    OTHER_EXPENSE.");
+                } else if (transactionType.equalsIgnoreCase("expense") && amount.compareTo(BigDecimal.ZERO) > 0) {
+                    System.out.println("Enter the type of expense: \n"
+                            + "food,\n"
+                            + "free time,\n"
+                            + "car,\n"
+                            + "savings,\n"
+                            + "travel,\n"
+                            + "other expenses.");
                 } else {
-                    System.out.println("Invalid input. Please try again.");
+                    System.out.println("Invalid input. Please try again...");
                 }
 
                 String expenseType = keyboard.nextLine();

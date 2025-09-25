@@ -62,22 +62,17 @@ public class Transaction {
     public void addTransaction(Transaction transaction) {
         transaction.addTransaction(transaction);
         if (transaction.getTransactionType().equalsIgnoreCase("income")) {
-          // balance += transaction.getAmount();
+            amount = amount.add(transaction.getAmount());
         } else {
-          //  balance -=transaction.getAmount();
+            amount = amount.subtract(transaction.getAmount());
         }
         System.out.println("Transaction added successfully." + transaction.getTransactionID());
 
     }
 
-    /*public void checkTheAmmountOfMoney() {
-        System.out.println("The amount of money on " + LocalDate + "is " + amount);
-    }
-
     public BigDecimal transitionsForTheDay() {
-        System.out.println("The transitions for today (" + LocalDate + ")" + "is: "); //end up expression efter is ...
+        System.out.println("The transitions for today (" + LocalDate.now() + ")" + "is: "); //end up expression efter is ...
         return amount;
 
-     */
-
+    }
 }
