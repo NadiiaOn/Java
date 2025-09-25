@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Transaction {
     private Integer transactionID;
     private String transactionType;
-    private BigDecimal amount = BigDecimal.ZERO;
+    private BigDecimal amount;
     private LocalDate date;
     private String description;
 
@@ -17,10 +17,6 @@ public class Transaction {
         this.amount = amount;
         this.date = date;
         this.description = description;
-
-        //write more methods for this class
-
-
     }
 
     public Integer getTransactionID() {
@@ -74,7 +70,6 @@ public class Transaction {
 
     }
 
-
     /*public void checkTheAmmountOfMoney() {
         System.out.println("The amount of money on " + LocalDate + "is " + amount);
     }
@@ -84,15 +79,5 @@ public class Transaction {
         return amount;
 
      */
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionID=" + transactionID +
-                ", transactionType='" + transactionType + '\'' +
-                ", amount=" + amount +
-                ", date=" + date +
-                ", description='" + description + '\'' +
-                '}';
-    }
 
 }

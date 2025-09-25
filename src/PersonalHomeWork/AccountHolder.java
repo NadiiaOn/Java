@@ -6,18 +6,13 @@ public class AccountHolder {
     private String accountHolderName;
     private Long phoneNumber;
     private Byte accountHolderAge;
-    private String personalAddressOfHolder;
-    private String emailOfHolder;
 
-    public AccountHolder(String name, Long phoneNumber, Byte accountHolderAge, Integer personalID, String personalAddress, String emailOfHolder) {
+    public AccountHolder(String name, Long phoneNumber, Byte accountHolderAge, Integer personalID) {
 
         this.personalIDHolder = personalID;
         this.accountHolderName = name;
         this.phoneNumber = phoneNumber;
         this.accountHolderAge = accountHolderAge;
-        this.personalAddressOfHolder = personalAddress;
-        this.emailOfHolder = emailOfHolder;
-
     }
 
     public String getAccountHolderName() {
@@ -36,29 +31,5 @@ public class AccountHolder {
         return personalIDHolder;
     }
 
-    public String getPersonalAddressOfHolder() {
-        return personalAddressOfHolder;
-    }
-
-    public String getEmailOfHolder() {
-        return emailOfHolder;
-    }
-
-    public void personalAddress() {
-        System.out.println("You full address is " + this.personalAddressOfHolder + ".");
-    }
-
-
-    @Override
-    public String toString() {
-        return "AccountHolder{" +
-                "personalIDHolder=" + personalIDHolder +
-                ", accountHolderName='" + accountHolderName + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", accountHolderAge=" + accountHolderAge +
-                ", personalAddressOfHolder='" + personalAddressOfHolder + '\'' +
-                ", emailOfHolder='" + emailOfHolder + '\'' +
-                '}';
-    }
 }
 

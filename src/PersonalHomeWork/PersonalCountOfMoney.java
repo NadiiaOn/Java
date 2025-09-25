@@ -4,35 +4,25 @@ import java.math.BigDecimal;
 
 public class PersonalCountOfMoney {
 
-    private Integer CountID;
-    private String type; //debit, credit
-    private BigDecimal balance;
-    private String status;
+    private Integer countID;
+    private String countName;
+    private BigDecimal countBalance;
 
-    public PersonalCountOfMoney(Integer CountID, String type, BigDecimal balance, String status) {
-        this.CountID = CountID;
-        this.type = type;
-        this.balance = balance;
-        this.status = status;
-
-
+    public PersonalCountOfMoney(Integer CountID, String countName, BigDecimal countBalance) {
+        this.countID = CountID;
+        this.countName = countName;
+        this.countBalance = countBalance;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
+    public BigDecimal getCountBalance() {
+        return countBalance;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-
+    public void setCountBalance(BigDecimal countBalance) {
+        this.countBalance = countBalance;
     }
 
     public void viewCurrentBalance() {
-        System.out.println("The current balance is " + balance);
-    }
-
-    @Override
-    public String toString() {
-        return "PersonalCountOfMoney{" + "CountID=" + CountID + ", type='" + type + '\'' + ", balance=" + balance + ", status='" + status + '\'' + '}';
+        System.out.println("The current balance is " + countBalance);
     }
 }

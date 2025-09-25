@@ -124,6 +124,7 @@ public class PersonalFinanceApp {
             case 2:
                 System.out.println();
                 System.out.println("What transactions would you like to delete? ");
+
                 //уточнить по чему человек хочет искать трасакцию по сумме, по дате, по ИД (для этого предварительно надо вывести все трансакции с указанием ИД)
 
                 break;
