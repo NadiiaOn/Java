@@ -1,10 +1,7 @@
 package PersonalHomeWork;
 
-import PersonalHomeWork.PersonalFinanceApp;
-import PersonalHomeWork.Transaction;
-import PersonalHomeWork.PersonalAccountOfMoney;
-
-
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Main {
@@ -13,7 +10,7 @@ public class Main {
         PersonalFinanceApp.personalFinanceApp(args);
 
         ArrayList<Transaction> transactions = new ArrayList<>();
-        Transaction transaction = new Transaction(1, "income", 30000.0,2025-09-26 , "my first salary");
+        Transaction transaction = new Transaction(1, "income", new BigDecimal(3000.00), LocalDate.of(2025,9,26) , "my first salary");
         transactions.add(transaction);
         transactions.remove(transaction);
 

@@ -1,6 +1,8 @@
 package PersonalHomeWork;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class PersonalAccountOfMoney {
 
@@ -8,6 +10,7 @@ public class PersonalAccountOfMoney {
     private String accountName;
     private Long accountNumber;
     private BigDecimal accountBalance;
+    private ArrayList<Transaction> transactions;
 
     public Integer getAccountID() {
         return accountID;
@@ -41,24 +44,24 @@ public class PersonalAccountOfMoney {
         this.accountBalance = accountBalance;
     }
 
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(ArrayList<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 
     public PersonalAccountOfMoney(String accountName, Long accountNumber) {
         this.accountID = 1;
         this.accountName = accountName;
         this.accountNumber = accountNumber;
         this.accountBalance = BigDecimal.ZERO;
+        this.transactions = new ArrayList<>();
     }
 
     public void viewCurrentBalance() {
         System.out.println("The current balance is " + accountBalance);
-    }
-
-    public void addTransaction(BigDecimal amount) {
-        accountBalance = accountBalance.add(amount);
-    }
-
-    public void subtractTransaction(BigDecimal amount) {
-        accountBalance = accountBalance.subtract(amount);
     }
 
     public void viewExpense() {
@@ -66,12 +69,9 @@ public class PersonalAccountOfMoney {
         for (Transaction t : transactions) {
             if (t.getTransactionType().equals("expense")) {
                 totalExpense = totalExpense.add(t.getAmount());
-                System.out.println("The total expense is " + totalExpense);
-            }
-            else  {
-                System.out.println("Wrong transaction type, please try again.");
             }
         }
+        System.out.println("The total expense is " + totalExpense);
 
     }
     public void viewIncome() {
@@ -79,14 +79,50 @@ public class PersonalAccountOfMoney {
         for (Transaction t : transactions) {
             if (t.getTransactionType().equals("income")) {
                 totalIncome = totalIncome.add(t.getAmount());
-                System.out.println("The total expense is " + totalIncome);
             }
-            else  {
-                System.out.println("Wrong transaction type, please try again.");
+        }
+        System.out.println("The total income is " + totalIncome);
+    }
+
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+        if (transaction.getTransactionType().equalsIgnoreCase("income")) {
+            accountBalance = accountBalance.add(transaction.getAmount());
+        } else {
+            accountBalance = accountBalance.subtract(transaction.getAmount());
+        }
+        System.out.println("Transaction added successfully." + transaction.getTransactionID());
+    }
+
+    public void removeTransaction(Integer transactionID) {
+        for (int i = 0; i < transactions.size(); i++) {
+            Transaction transaction = transactions.get(i);
+
+            if (transaction.getTransactionID().equals(transactionID)) {
+                transactions.remove(transaction);
+                if (transaction.getTransactionType().equalsIgnoreCase("income")) {
+                    accountBalance = accountBalance.subtract(transaction.getAmount());
+                } else {
+                    accountBalance = accountBalance.add(transaction.getAmount());
+                }
+                System.out.println("Transaction deleted successfully." + transaction.getTransactionID());
+                return;
             }
         }
 
+        System.out.println("Transaction ID incorrect. Write the correct ID.");
     }
 
+    public void viewTheListOfTransactions() {
+        for (Transaction t : transactions) {
+           t.viewTransactionDetails();
+        }
+    }
+
+    public BigDecimal transitionsForTheDay() {
+        System.out.println("The transitions for today (" + LocalDate.now() + ")" + "is: "); //end up expression efter is ...
+        return BigDecimal.ZERO;
+
+    }
 }
 

@@ -59,40 +59,10 @@ public class Transaction {
         this.description = description;
     }
 
-    public void addTransaction(Transaction transaction) {
-        transaction.addTransaction(transaction);
-        if (transaction.getTransactionType().equalsIgnoreCase("income")) {
-            amount = amount.add(transaction.getAmount());
-        } else {
-            amount = amount.subtract(transaction.getAmount());
-        }
-        System.out.println("Transaction added successfully." + transaction.getTransactionID());
-
-    }
-
-    public void removeTransaction(Transaction transaction) {
-
-        for (int i = 0; i < transaction.size(); i++) {
-            int transactionID = transaction.getTransactionID(i);
-
-            if (transaction.getTransactionID() == transactionID) {
-                transaction.removeTransaction(transaction);
-                System.out.println("Transaction deleted successfully." + transaction.getTransactionID());
-            } else if (transaction.getTransactionID() != transactionID) {
-                System.out.println("Transaction ID incorrect. Write the correct ID.");
-            }
-        }
-
-        for (int transactionID : transaction) {
-            System.out.println("Transaction removed successfully." + transaction.getTransactionID());
-        }
-        System.out.println("Transaction ID incorrect. Write the correct ID.");
-    }
-
-
-    public BigDecimal transitionsForTheDay() {
-        System.out.println("The transitions for today (" + LocalDate.now() + ")" + "is: "); //end up expression efter is ...
-        return amount;
-
+    public void viewTransactionDetails() {
+        System.out.println(transactionID);
+        System.out.println(transactionType);
+        System.out.println(amount);
+        System.out.println(date);
     }
 }
