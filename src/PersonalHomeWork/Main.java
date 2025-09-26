@@ -10,7 +10,7 @@ public class Main {
 
         PersonalFinanceApp.personalFinanceApp(args);
 
-        AccountHolder.accountHolderInformation(null);
+
 
 
 

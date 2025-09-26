@@ -6,7 +6,7 @@ public class PersonalAccountOfMoney {
 
     private Integer accountID;
     private String accountName;
-    private Integer accountNumber;
+    private Long accountNumber;
     private BigDecimal accountBalance;
 
     public Integer getAccountID() {
@@ -25,11 +25,11 @@ public class PersonalAccountOfMoney {
         this.accountName = accountName;
     }
 
-    public Integer getAccountNumber() {
+    public Long getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
+    public void setAccountNumber(Long accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -42,11 +42,11 @@ public class PersonalAccountOfMoney {
     }
 
 
-    public PersonalAccountOfMoney(Integer accountID, String accountName, BigDecimal accountBalance) {
-        this.accountID = accountID;
+    public PersonalAccountOfMoney(String accountName, Long accountNumber) {
+        this.accountID = 1;
         this.accountName = accountName;
         this.accountNumber = accountNumber;
-        this.accountBalance = accountBalance;
+        this.accountBalance = BigDecimal.ZERO;
     }
 
     public void viewCurrentBalance() {
@@ -59,6 +59,7 @@ public class PersonalAccountOfMoney {
     public void  subtractTransaction(BigDecimal amount) {
         accountBalance = accountBalance.subtract(amount);
     }
+
 
 
 }

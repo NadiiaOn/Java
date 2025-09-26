@@ -28,7 +28,8 @@ public class PersonalFinanceApp {
 
     }
 
-    public static void personalFinanceApp (String[] args) {
+    public static void personalFinanceApp(String[] args) {
+
 
         System.out.println(" =============== Hello! ==============  ");
         System.out.println("\n I am your personal-finance application!");
@@ -74,6 +75,7 @@ public class PersonalFinanceApp {
             System.out.println("\n You need to write your account number");
         }
 
+
         Scanner scanner5 = new Scanner(System.in);
         System.out.print("\n Write your account name: ");
         String accountName = scanner5.nextLine();
@@ -83,79 +85,83 @@ public class PersonalFinanceApp {
             System.out.println("\n You need to write your account name");
         }
 
+        PersonalAccountOfMoney personalAccountOfMoney = new PersonalAccountOfMoney(accountName, accountNumber);
 
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\\n Choose the number for further action: ");
-        System.out.println("\t 1. Add a new transactions by yourself.");
-        System.out.println("\t 2. Delete a transactions.");
-        System.out.println("\t 3. View current account balance.");
-        System.out.println("\t 4. View money some was spent (annually, monthly, weekly and daily).");
-        System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
-        System.out.println("\t 6. Other action with the account.");
+        while (true) {
+            System.out.println("\\n Choose the number for further action: ");
+            System.out.println("\t 1. Add a new transactions by yourself.");
+            System.out.println("\t 2. Delete a transactions.");
+            System.out.println("\t 3. View current account balance.");
+            System.out.println("\t 4. View money some was spent (annually, monthly, weekly and daily).");
+            System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
+            System.out.println("\t 6. Other action with the account.");
 
 
-        int variants = keyboard.nextInt();
-        switch (variants) {
-            case 1:
-                System.out.println("Enter the amount of money you want to add: ");
-                BigDecimal amount = keyboard.nextBigDecimal();
-                keyboard.nextLine();
-                System.out.println("Write the transactions type (income or expense): ");
-                String transactionType = keyboard.nextLine();
+            int variants = keyboard.nextInt();
+            switch (variants) {
+                case 1:
+                    System.out.println("Enter the amount of money you want to add: ");
+                    BigDecimal amountForTheTransaction = keyboard.nextBigDecimal();
+                    keyboard.nextLine();
+                    System.out.println("Write the transactions type (income or expense): ");
+                    String transactionType = keyboard.nextLine();
 
-                if (transactionType.equalsIgnoreCase("income") && amount.compareTo(BigDecimal.ZERO) > 0) {
-                    System.out.println("Enter the type of income: \n"
-                            + " salary,\n"
-                            + "interest from the investments,\n"
-                            + "presents,\n"
-                            + "scholarship,\n"
-                            + "other income. ");
-                    String incomeType = keyboard.nextLine();
-
-
-                } else if (transactionType.equalsIgnoreCase("expense") && amount.compareTo(BigDecimal.ZERO) > 0) {
-                    System.out.println("Enter the type of expense: \n"
-                            + "food,\n"
-                            + "free time,\n"
-                            + "car,\n"
-                            + "savings,\n"
-                            + "travel,\n"
-                            + "other expenses.");
-                } else {
-                    System.out.println("Invalid input. Please try again...");
-                }
-
-                String expenseType = keyboard.nextLine();
-                // addTransaction method
-
-                break;
-
-            case 2:
-                System.out.println();
-                System.out.println("What transactions would you like to delete? ");
-
-                //уточнить по чему человек хочет искать трасакцию по сумме, по дате, по ИД (для этого предварительно надо вывести все трансакции с указанием ИД)
-
-                break;
-
-            case 3:
-                System.out.println("The current balance is ");
-             //add function viewCurrentBalance
-                break;
-
-            case 4:
-                System.out.println("View money some was spent (annually, monthly, weekly and daily)");
-                break;
-
-            case 5:
-                System.out.println("View income (annually, monthly, weekly and daily).");
-                break;
+                    if (transactionType.equalsIgnoreCase("income") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
+                        System.out.println("Enter the type of income: \n"
+                                + " salary,\n"
+                                + "interest from the investments,\n"
+                                + "presents,\n"
+                                + "scholarship,\n"
+                                + "other income. ");
+                        String incomeType = keyboard.nextLine();
+                        personalAccountOfMoney.addTransaction(amountForTheTransaction);
 
 
-            default:
-                System.out.println("Select an option");
-                break;
+                    } else if (transactionType.equalsIgnoreCase("expense") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
+                        System.out.println("Enter the type of expense: \n"
+                                + "food,\n"
+                                + "free time,\n"
+                                + "car,\n"
+                                + "savings,\n"
+                                + "travel,\n"
+                                + "other expenses.");
+                        String expenseType = keyboard.nextLine();
+                        personalAccountOfMoney.subtractTransaction(amountForTheTransaction);
 
+                    } else {
+                        System.out.println("Invalid input. Please try again...");
+                    }
+
+                    break;
+
+                case 2:
+
+                    System.out.println("What transactions would you like to delete? ");
+
+                    //уточнить по чему человек хочет искать трасакцию по сумме, по дате, по ИД (для этого предварительно надо вывести все трансакции с указанием ИД)
+
+                    break;
+
+                case 3:
+                    System.out.println("The current balance is " + personalAccountOfMoney.getAccountBalance());
+
+                    break;
+
+                case 4:
+                    System.out.println("View money some was spent (annually, monthly, weekly and daily)");
+                    break;
+
+                case 5:
+                    System.out.println("View income (annually, monthly, weekly and daily).");
+                    break;
+
+
+                default:
+                    System.out.println("Select an option");
+                    break;
+
+            }
         }
     }
 
