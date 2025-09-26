@@ -1,7 +1,9 @@
-import PersonalHomeWork.AccountHolder;
-import PersonalHomeWork.PersonalAccountOfMoney;
+package PersonalHomeWork;
+
 import PersonalHomeWork.PersonalFinanceApp;
 import PersonalHomeWork.Transaction;
+import PersonalHomeWork.PersonalAccountOfMoney;
+
 
 import java.util.ArrayList;
 
@@ -9,6 +11,12 @@ public class Main {
     public static void main(String[] args) {
 
         PersonalFinanceApp.personalFinanceApp(args);
+
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        Transaction transaction = new Transaction(1, "income", 30000.0,2025-09-26 , "my first salary");
+        transactions.add(transaction);
+        transactions.remove(transaction);
+
 
 
 

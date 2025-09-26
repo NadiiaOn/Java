@@ -70,6 +70,26 @@ public class Transaction {
 
     }
 
+    public void removeTransaction(Transaction transaction) {
+
+        for (int i = 0; i < transaction.size(); i++) {
+            int transactionID = transaction.getTransactionID(i);
+
+            if (transaction.getTransactionID() == transactionID) {
+                transaction.removeTransaction(transaction);
+                System.out.println("Transaction deleted successfully." + transaction.getTransactionID());
+            } else if (transaction.getTransactionID() != transactionID) {
+                System.out.println("Transaction ID incorrect. Write the correct ID.");
+            }
+        }
+
+        for (int transactionID : transaction) {
+            System.out.println("Transaction removed successfully." + transaction.getTransactionID());
+        }
+        System.out.println("Transaction ID incorrect. Write the correct ID.");
+    }
+
+
     public BigDecimal transitionsForTheDay() {
         System.out.println("The transitions for today (" + LocalDate.now() + ")" + "is: "); //end up expression efter is ...
         return amount;

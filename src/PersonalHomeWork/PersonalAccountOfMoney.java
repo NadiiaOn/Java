@@ -53,13 +53,40 @@ public class PersonalAccountOfMoney {
         System.out.println("The current balance is " + accountBalance);
     }
 
-    public void  addTransaction(BigDecimal amount) {
+    public void addTransaction(BigDecimal amount) {
         accountBalance = accountBalance.add(amount);
     }
-    public void  subtractTransaction(BigDecimal amount) {
+
+    public void subtractTransaction(BigDecimal amount) {
         accountBalance = accountBalance.subtract(amount);
     }
 
+    public void viewExpense() {
+        BigDecimal totalExpense = BigDecimal.ZERO;
+        for (Transaction t : transactions) {
+            if (t.getTransactionType().equals("expense")) {
+                totalExpense = totalExpense.add(t.getAmount());
+                System.out.println("The total expense is " + totalExpense);
+            }
+            else  {
+                System.out.println("Wrong transaction type, please try again.");
+            }
+        }
 
+    }
+    public void viewIncome() {
+        BigDecimal totalIncome = BigDecimal.ZERO;
+        for (Transaction t : transactions) {
+            if (t.getTransactionType().equals("income")) {
+                totalIncome = totalIncome.add(t.getAmount());
+                System.out.println("The total expense is " + totalIncome);
+            }
+            else  {
+                System.out.println("Wrong transaction type, please try again.");
+            }
+        }
+
+    }
 
 }
+

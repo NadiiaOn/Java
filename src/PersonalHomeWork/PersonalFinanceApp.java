@@ -93,7 +93,7 @@ public class PersonalFinanceApp {
             System.out.println("\t 1. Add a new transactions by yourself.");
             System.out.println("\t 2. Delete a transactions.");
             System.out.println("\t 3. View current account balance.");
-            System.out.println("\t 4. View money some was spent (annually, monthly, weekly and daily).");
+            System.out.println("\t 4. View expense (annually, monthly, weekly and daily).");
             System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
             System.out.println("\t 6. Other action with the account.");
 
@@ -105,9 +105,9 @@ public class PersonalFinanceApp {
                     BigDecimal amountForTheTransaction = keyboard.nextBigDecimal();
                     keyboard.nextLine();
                     System.out.println("Write the transactions type (income or expense): ");
-                    String transactionType = keyboard.nextLine();
+                    String typeOfTransaction = keyboard.nextLine();
 
-                    if (transactionType.equalsIgnoreCase("income") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
+                    if (typeOfTransaction.equalsIgnoreCase("income") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
                         System.out.println("Enter the type of income: \n"
                                 + " salary,\n"
                                 + "interest from the investments,\n"
@@ -118,7 +118,7 @@ public class PersonalFinanceApp {
                         personalAccountOfMoney.addTransaction(amountForTheTransaction);
 
 
-                    } else if (transactionType.equalsIgnoreCase("expense") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
+                    } else if (typeOfTransaction.equalsIgnoreCase("expense") && amountForTheTransaction.compareTo(BigDecimal.ZERO) > 0) {
                         System.out.println("Enter the type of expense: \n"
                                 + "food,\n"
                                 + "free time,\n"
@@ -149,7 +149,8 @@ public class PersonalFinanceApp {
                     break;
 
                 case 4:
-                    System.out.println("View money some was spent (annually, monthly, weekly and daily)");
+                    System.out.println("View expense (annually, monthly, weekly and daily)");
+
                     break;
 
                 case 5:
