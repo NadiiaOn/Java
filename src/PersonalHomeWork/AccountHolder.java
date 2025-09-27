@@ -7,9 +7,9 @@ public class AccountHolder {
     private Long accountHolderPhoneNumber;
     private Byte accountHolderAge;
 
-    public AccountHolder(Integer personalID, String accountHolderName, Long accountHolderPhoneNumber, Byte accountHolderAge) {
+    public AccountHolder(Integer personalIDHolder, String accountHolderName, Long accountHolderPhoneNumber, Byte accountHolderAge) {
 
-        this.personalIDHolder = personalID;
+        this.personalIDHolder = personalIDHolder;
         this.accountHolderName = accountHolderName;
         this.accountHolderPhoneNumber = accountHolderPhoneNumber;
         this.accountHolderAge = accountHolderAge;
@@ -32,11 +32,11 @@ public class AccountHolder {
     }
 
 
-    public static void accountHolderInformation (AccountHolder accountHolder) {
-        System.out.println(accountHolder.getPersonalIDHolder());
-        System.out.println(accountHolder.getAccountHolderName());
-        System.out.println(accountHolder.getAccountHolderPhoneNumber());
-        System.out.println(accountHolder.getAccountHolderAge());
+    public void accountHolderInformation () {
+        System.out.println( "Accountholder personal ID is " + getPersonalIDHolder() + ".");
+        System.out.println("Accountholder name is " + getAccountHolderName() + ".");
+        System.out.println("Accountholder Phone number is " + getAccountHolderPhoneNumber() + ".");
+        System.out.println("Accountholder Age is " + getAccountHolderAge() + ".");
     }
 
 }

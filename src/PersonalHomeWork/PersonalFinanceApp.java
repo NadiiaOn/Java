@@ -62,7 +62,7 @@ public class PersonalFinanceApp {
         } else {
             System.out.println("\n You need to write your account name");
         }
-
+        AccountHolder accountHolder = new AccountHolder(1, accountHolderName, accountHolderPhoneNumber, accountHolderAge);
         PersonalAccountOfMoney personalAccountOfMoney = new PersonalAccountOfMoney(accountName, accountNumber);
         Integer nextTransactionID = 1;
 
@@ -74,7 +74,7 @@ public class PersonalFinanceApp {
             System.out.println("\t 3. View current account balance.");
             System.out.println("\t 4. View expense (annually, monthly, weekly and daily).");
             System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
-            System.out.println("\t 6. Select an option.");
+            System.out.println("\t 6. The information about the accountHolder.");
 
 
             int variants = keyboard.nextInt();
@@ -170,7 +170,7 @@ public class PersonalFinanceApp {
                             "4. daily.\n ");
                     personalAccountOfMoney.viewIncome();
 
-                    int periodOfIncome= keyboard.nextInt();
+                    int periodOfIncome = keyboard.nextInt();
                     switch (periodOfIncome) {
                         case 1:
                             System.out.println("The income annually is ");
@@ -192,6 +192,10 @@ public class PersonalFinanceApp {
                             personalAccountOfMoney.viewStatisticsDaily("income");
                             break;
                     }
+                    break;
+                case 6:
+                    System.out.println("Information about the accountholder.");
+                    accountHolder.accountHolderInformation();
                     break;
 
 
