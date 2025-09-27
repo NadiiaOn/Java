@@ -2,6 +2,7 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Random;
 
 
 public class Transaction {

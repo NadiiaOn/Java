@@ -1,8 +1,9 @@
 package PersonalHomeWork;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PersonalAccountOfMoney {
 
@@ -74,6 +75,7 @@ public class PersonalAccountOfMoney {
         System.out.println("The total expense is " + totalExpense);
 
     }
+
     public void viewIncome() {
         BigDecimal totalIncome = BigDecimal.ZERO;
         for (Transaction t : transactions) {
@@ -91,7 +93,7 @@ public class PersonalAccountOfMoney {
         } else {
             accountBalance = accountBalance.subtract(transaction.getAmount());
         }
-        System.out.println("Transaction added successfully." + transaction.getTransactionID());
+        System.out.println("Transaction added successfully. The transaction ID is " + transaction.getTransactionID());
     }
 
     public void removeTransaction(Integer transactionID) {
@@ -108,6 +110,7 @@ public class PersonalAccountOfMoney {
                 System.out.println("Transaction deleted successfully." + transaction.getTransactionID());
                 return;
             }
+
         }
 
         System.out.println("Transaction ID incorrect. Write the correct ID.");
@@ -115,14 +118,109 @@ public class PersonalAccountOfMoney {
 
     public void viewTheListOfTransactions() {
         for (Transaction t : transactions) {
-           t.viewTransactionDetails();
+            t.viewTransactionDetails();
         }
     }
 
-    public BigDecimal transitionsForTheDay() {
-        System.out.println("The transitions for today (" + LocalDate.now() + ")" + "is: "); //end up expression efter is ...
-        return BigDecimal.ZERO;
 
+    public void viewStatisticsDaily(String transactionType) {
+
+        HashMap<String, BigDecimal> statistics = new HashMap<>();
+
+        for (Transaction transactionFilter : getTransactions()) {
+            if (transactionFilter.getTransactionType().equalsIgnoreCase(transactionType)) {
+                String transactionDate = transactionFilter.getDate().toString();
+
+                BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+                if (amountOfThePeriod == null) {
+                    amountOfThePeriod = BigDecimal.ZERO;
+                }
+                amountOfThePeriod = amountOfThePeriod.add(transactionFilter.getAmount());
+                statistics.put(transactionDate, amountOfThePeriod);
+            }
+        }
+
+        ArrayList<String> dates = new ArrayList<>(statistics.keySet());
+        dates.sort(String::compareTo);
+        for (String transactionDate : dates) {
+            BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+            System.out.println(transactionDate + " - " + amountOfThePeriod.toString());
+        }
+    }
+
+    public void viewStatisticsMonthly(String transactionType) {
+
+        HashMap<String, BigDecimal> statistics = new HashMap<>();
+
+        for (Transaction transactionFilter : getTransactions()) {
+            if (transactionFilter.getTransactionType().equalsIgnoreCase(transactionType)) {
+                String transactionDate = transactionFilter.getDate().getYear() + "-" + transactionFilter.getDate().getMonthValue();
+
+                BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+                if (amountOfThePeriod == null) {
+                    amountOfThePeriod = BigDecimal.ZERO;
+                }
+                amountOfThePeriod = amountOfThePeriod.add(transactionFilter.getAmount());
+                statistics.put(transactionDate, amountOfThePeriod);
+            }
+        }
+
+        ArrayList<String> dates = new ArrayList<>(statistics.keySet());
+        dates.sort(String::compareTo);
+        for (String transactionDate : dates) {
+            BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+            System.out.println(transactionDate + " - " + amountOfThePeriod.toString());
+        }
+    }
+
+    public void viewStatisticsYearly(String transactionType) {
+
+        HashMap<String, BigDecimal> statistics = new HashMap<>();
+
+        for (Transaction transactionFilter : getTransactions()) {
+            if (transactionFilter.getTransactionType().equalsIgnoreCase(transactionType)) {
+                String transactionDate = String.valueOf(transactionFilter.getDate().getYear());
+
+                BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+                if (amountOfThePeriod == null) {
+                    amountOfThePeriod = BigDecimal.ZERO;
+                }
+                amountOfThePeriod = amountOfThePeriod.add(transactionFilter.getAmount());
+                statistics.put(transactionDate, amountOfThePeriod);
+            }
+        }
+
+        ArrayList<String> dates = new ArrayList<>(statistics.keySet());
+        dates.sort(String::compareTo);
+        for (String transactionDate : dates) {
+            BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+            System.out.println(transactionDate + " - " + amountOfThePeriod.toString());
+        }
+    }
+
+    public void viewStatisticsWeekly(String transactionType) {
+
+        HashMap<String, BigDecimal> statistics = new HashMap<>();
+
+        for (Transaction transactionFilter : getTransactions()) {
+            if (transactionFilter.getTransactionType().equalsIgnoreCase(transactionType)) {
+                String transactionDate = transactionFilter.getDate().getYear() + " " + transactionFilter.getDate().get(WeekFields.ISO.weekOfWeekBasedYear()) + "week";
+
+                BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+                if (amountOfThePeriod == null) {
+                    amountOfThePeriod = BigDecimal.ZERO;
+                }
+                amountOfThePeriod = amountOfThePeriod.add(transactionFilter.getAmount());
+                statistics.put(transactionDate, amountOfThePeriod);
+            }
+        }
+
+        ArrayList<String> dates = new ArrayList<>(statistics.keySet());
+        dates.sort(String::compareTo);
+        for (String transactionDate : dates) {
+            BigDecimal amountOfThePeriod = statistics.get(transactionDate);
+            System.out.println(transactionDate + " - " + amountOfThePeriod.toString());
+        }
     }
 }
 

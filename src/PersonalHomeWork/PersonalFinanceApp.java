@@ -2,36 +2,11 @@ package PersonalHomeWork;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 public class PersonalFinanceApp {
 
-    private int transactionCountID = 0; //transactions counter
-    private ArrayList<PersonalAccountOfMoney> accounts;
-    private ArrayList<Transaction> transactions;
-
-
-    public ArrayList<PersonalAccountOfMoney> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(ArrayList<PersonalAccountOfMoney> accounts) {
-        this.accounts = accounts;
-    }
-
-    public ArrayList<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(ArrayList<Transaction> transactions) {
-        this.transactions = transactions;
-
-    }
-
-    public static void personalFinanceApp(String[] args) {
+    public static void run() {
 
 
         System.out.println(" =============== Hello! ==============  ");
@@ -93,7 +68,7 @@ public class PersonalFinanceApp {
 
         Scanner keyboard = new Scanner(System.in);
         while (true) {
-            System.out.println("\\n Choose the number for further action: ");
+            System.out.println("\n Choose the number for further action: ");
             System.out.println("\t 1. Add a new transactions by yourself.");
             System.out.println("\t 2. Delete a transactions.");
             System.out.println("\t 3. View current account balance.");
@@ -142,13 +117,10 @@ public class PersonalFinanceApp {
                     break;
 
                 case 2:
-
                     System.out.println("What transactions would you like to delete? ");
                     personalAccountOfMoney.viewTheListOfTransactions();
                     int transactionToDeleteID = keyboard.nextInt();
                     personalAccountOfMoney.removeTransaction(transactionToDeleteID);
-
-                    //уточнить по чему человек хочет искать трасакцию по сумме, по дате, по ИД (для этого предварительно надо вывести все трансакции с указанием ИД)
 
                     break;
 
@@ -158,34 +130,68 @@ public class PersonalFinanceApp {
                     break;
 
                 case 4:
-                    System.out.println("View expense (annually, monthly, weekly and daily)");
+                    System.out.println("View expense: \n" +
+                            "1. annually, \n" +
+                            "2. monthly, \n" +
+                            "3. weekly, \n" +
+                            "4. daily.");
                     personalAccountOfMoney.viewExpense();
-                    HashMap<LocalDate, BigDecimal> statistics = new HashMap<>();
 
-                    for (Transaction transactionFilter : personalAccountOfMoney.getTransactions()) {
-                        if (transactionFilter.getTransactionType().equalsIgnoreCase("expense")) {
-                            LocalDate transactionDate = transactionFilter.getDate();
+                    int periodOfExpense = keyboard.nextInt();
+                    switch (periodOfExpense) {
+                        case 1:
+                            System.out.println("The expense yearly is ");
+                            personalAccountOfMoney.viewStatisticsYearly("expense");
+                            break;
 
-                           BigDecimal amountOfTheDayExpenses = statistics.get(transactionDate);
-                           if (amountOfTheDayExpenses == null) {
-                               amountOfTheDayExpenses = BigDecimal.ZERO;
-                           }
-                           amountOfTheDayExpenses = amountOfTheDayExpenses .add(transactionFilter.getAmount());
-                           statistics.put(transactionDate, amountOfTheDayExpenses);
-                        }
+                        case 2:
+                            System.out.println("The expense monthly is ");
+                            personalAccountOfMoney.viewStatisticsMonthly("expense");
+                            break;
+
+                        case 3:
+                            System.out.println("The expense weekly is ");
+                            personalAccountOfMoney.viewStatisticsWeekly("expense");
+                            break;
+
+                        case 4:
+                            System.out.println("The expense daily is ");
+                            personalAccountOfMoney.viewStatisticsDaily("expense");
+                            break;
                     }
 
-                    ArrayList<LocalDate> dates = new ArrayList<>(statistics.keySet());
-                    dates.sort(LocalDate::compareTo);
-                    for (LocalDate transactionDate : dates) {
-                        BigDecimal amountOfTheDayExpenses = statistics.get(transactionDate);
-                        System.out.println(transactionDate.toString() + " - " + amountOfTheDayExpenses.toString());
-                    }
                     break;
 
                 case 5:
-                    System.out.println("View income (annually, monthly, weekly and daily).");
+                    System.out.println("View income: \n" +
+                            "1. annually,\n " +
+                            "2. monthly, \n" +
+                            "3. weekly,\n " +
+                            "4. daily.\n ");
                     personalAccountOfMoney.viewIncome();
+
+                    int periodOfIncome= keyboard.nextInt();
+                    switch (periodOfIncome) {
+                        case 1:
+                            System.out.println("The income annually is ");
+                            personalAccountOfMoney.viewStatisticsYearly("income");
+                            break;
+
+                        case 2:
+                            System.out.println("The income monthly is ");
+                            personalAccountOfMoney.viewStatisticsMonthly("income");
+                            break;
+
+                        case 3:
+                            System.out.println("The income weekly is ");
+                            personalAccountOfMoney.viewStatisticsWeekly("income");
+                            break;
+
+                        case 4:
+                            System.out.println("The income daily is ");
+                            personalAccountOfMoney.viewStatisticsDaily("income");
+                            break;
+                    }
                     break;
 
 
@@ -198,9 +204,7 @@ public class PersonalFinanceApp {
     }
 
 }
-// разветвить свитч через while: if, else if to make the actions.
-//after that show again the list of action + possibilities to finish the whole process.
-// annually, monthly, weekly and daily choose throw the new switch ant than while: if, else if to make the actions.
+
 
 
 
