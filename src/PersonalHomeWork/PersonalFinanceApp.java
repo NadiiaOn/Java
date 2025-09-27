@@ -16,7 +16,7 @@ public class PersonalFinanceApp {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n Write your personal ID: ");
         Long personalIDHolder = scanner.nextLong();
-        if (personalIDHolder > 0) {
+        if (personalIDHolder > 0) {  //add checking for the right number (12 figures), add the template
             System.out.println("\n Thank you for your ID. ");
         } else {
             System.out.println("\n You need to write your ID number!");
@@ -25,7 +25,7 @@ public class PersonalFinanceApp {
 
         System.out.println("\n What is your full name? ");
         String accountHolderName = scanner.next();
-        if (!accountHolderName.trim().isEmpty()) {
+        if (!accountHolderName.trim().isEmpty()) { //think about more input validation
             System.out.println("\n Hi, " + accountHolderName + "! \n I am happy to meet you!");
         } else {
             System.out.println("\n You need to write your name...");
@@ -35,7 +35,7 @@ public class PersonalFinanceApp {
         System.out.println("\n What is your phone number? ");
         Long accountHolderPhoneNumber = scanner.nextLong();
 
-        if (accountHolderPhoneNumber > 0) {
+        if (accountHolderPhoneNumber > 0) { //add template and input validation
             System.out.println("\n This is your number " + accountHolderPhoneNumber);
         } else {
             System.out.println("\n You need to write your phone number");
@@ -53,7 +53,7 @@ public class PersonalFinanceApp {
         System.out.println("\n Write your account number: ");
         Long accountNumber = scanner.nextLong();
 
-        if (accountNumber > 0) {
+        if (accountNumber > 0) { //add template and input validation
             System.out.println("\n Thank you for using your account. ");
         } else {
             System.out.println("\n You need to write your account number");
