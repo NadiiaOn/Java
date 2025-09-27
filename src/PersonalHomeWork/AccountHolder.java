@@ -2,12 +2,12 @@ package PersonalHomeWork;
 
 public class AccountHolder {
 
-    private Integer personalIDHolder;
+    private Long personalIDHolder;
     private String accountHolderName;
     private Long accountHolderPhoneNumber;
     private Byte accountHolderAge;
 
-    public AccountHolder(Integer personalIDHolder, String accountHolderName, Long accountHolderPhoneNumber, Byte accountHolderAge) {
+    public AccountHolder(Long personalIDHolder, String accountHolderName, Long accountHolderPhoneNumber, Byte accountHolderAge) {
 
         this.personalIDHolder = personalIDHolder;
         this.accountHolderName = accountHolderName;
@@ -27,7 +27,7 @@ public class AccountHolder {
         return accountHolderAge;
     }
 
-    public Integer getPersonalIDHolder() {
+    public Long getPersonalIDHolder() {
         return personalIDHolder;
     }
 

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+
 public class PersonalFinanceApp {
 
     public static void run() {
@@ -13,39 +14,44 @@ public class PersonalFinanceApp {
         System.out.println("\n I am your personal-finance application!");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("What is your full name? ");
+        System.out.println("\n Write your personal ID: ");
+        Long personalIDHolder = scanner.nextLong();
+        if (personalIDHolder > 0) {
+            System.out.println("\n Thank you for your ID. ");
+        } else {
+            System.out.println("\n You need to write your ID number!");
+        }
 
-        String accountHolderName = scanner.nextLine();
 
+        System.out.println("\n What is your full name? ");
+        String accountHolderName = scanner.next();
         if (!accountHolderName.trim().isEmpty()) {
             System.out.println("\n Hi, " + accountHolderName + "! \n I am happy to meet you!");
         } else {
             System.out.println("\n You need to write your name...");
-
         }
 
-        Scanner scanner1 = new Scanner(System.in);
-        System.out.print("\n What is your phone number? ");
 
+        System.out.println("\n What is your phone number? ");
         Long accountHolderPhoneNumber = scanner.nextLong();
+
         if (accountHolderPhoneNumber > 0) {
             System.out.println("\n This is your number " + accountHolderPhoneNumber);
         } else {
             System.out.println("\n You need to write your phone number");
         }
 
-        Scanner scanner3 = new Scanner(System.in);
-        System.out.print("\n How old are you? ");
-        Byte accountHolderAge = scanner3.nextByte();
+        System.out.println("\n How old are you? ");
+        Byte accountHolderAge = scanner.nextByte();
+
         if (accountHolderAge >= 18 && accountHolderAge <= 120) {
             System.out.println("\n You have the legal right to manage your account. ");
         } else {
             System.out.println("\n You need to write your age");
         }
 
-        Scanner scanner4 = new Scanner(System.in);
-        System.out.print("\n Write your account number: ");
-        Long accountNumber = scanner4.nextLong();
+        System.out.println("\n Write your account number: ");
+        Long accountNumber = scanner.nextLong();
 
         if (accountNumber > 0) {
             System.out.println("\n Thank you for using your account. ");
@@ -54,15 +60,15 @@ public class PersonalFinanceApp {
         }
 
 
-        Scanner scanner5 = new Scanner(System.in);
-        System.out.print("\n Write your account name: ");
-        String accountName = scanner5.nextLine();
+        System.out.println("\n Write your account name: ");
+        String accountName = scanner.next();
+
         if (!accountName.trim().isEmpty()) {
             System.out.println("\n Your account name is " + accountName);
         } else {
             System.out.println("\n You need to write your account name");
         }
-        AccountHolder accountHolder = new AccountHolder(1, accountHolderName, accountHolderPhoneNumber, accountHolderAge);
+        AccountHolder accountHolder = new AccountHolder(personalIDHolder, accountHolderName, accountHolderPhoneNumber, accountHolderAge);
         PersonalAccountOfMoney personalAccountOfMoney = new PersonalAccountOfMoney(accountName, accountNumber);
         Integer nextTransactionID = 1;
 
