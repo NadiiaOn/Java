@@ -74,7 +74,7 @@ public class PersonalFinanceApp {
             System.out.println("\t 3. View current account balance.");
             System.out.println("\t 4. View expense (annually, monthly, weekly and daily).");
             System.out.println("\t 5. View income (annually, monthly, weekly and daily).");
-            System.out.println("\t 6. Other action with the account.");
+            System.out.println("\t 6. Select an option.");
 
 
             int variants = keyboard.nextInt();
