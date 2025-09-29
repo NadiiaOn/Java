@@ -110,9 +110,7 @@ public class PersonalAccountOfMoney {
                 System.out.println("Transaction deleted successfully." + transaction.getTransactionID());
                 return;
             }
-
         }
-
         System.out.println("Transaction ID incorrect. Write the correct ID.");
     }
 
@@ -121,7 +119,6 @@ public class PersonalAccountOfMoney {
             t.viewTransactionDetails();
         }
     }
-
 
     public void viewStatisticsDaily(String transactionType) {
 

@@ -16,10 +16,10 @@ public class PersonalFinanceApp {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n Write your personal ID: ");
         Long personalIDHolder = scanner.nextLong();
-        if (personalIDHolder > 0) {  //add checking for the right number (12 figures), add the template
+        if (personalIDHolder > 99999999999L) {  //add template
             System.out.println("\n Thank you for your ID. ");
         } else {
-            System.out.println("\n You need to write your ID number!");
+            System.out.println("\n You need to write your ID number!(Correct personal ID has 12 figures).");
         }
 
 
@@ -28,26 +28,26 @@ public class PersonalFinanceApp {
         if (!accountHolderName.trim().isEmpty()) { //think about more input validation
             System.out.println("\n Hi, " + accountHolderName + "! \n I am happy to meet you!");
         } else {
-            System.out.println("\n You need to write your name...");
+            System.out.println("\n You need to write your full name...");
         }
 
 
         System.out.println("\n What is your phone number? ");
         Long accountHolderPhoneNumber = scanner.nextLong();
 
-        if (accountHolderPhoneNumber > 0) { //add template and input validation
+        if (accountHolderPhoneNumber > 999999999L) { //add template
             System.out.println("\n This is your number " + accountHolderPhoneNumber);
         } else {
-            System.out.println("\n You need to write your phone number");
+            System.out.println("\n You need to write your phone number (Correct phone number has at least 10 figures).");
         }
 
         System.out.println("\n How old are you? ");
         Byte accountHolderAge = scanner.nextByte();
 
         if (accountHolderAge >= 18 && accountHolderAge <= 120) {
-            System.out.println("\n You have the legal right to manage your account. ");
+            System.out.println("\n You have the legal right to manage your account.");
         } else {
-            System.out.println("\n You need to write your age");
+            System.out.println("\n You need to write your age.");
         }
 
         System.out.println("\n Write your account number: ");
@@ -56,7 +56,7 @@ public class PersonalFinanceApp {
         if (accountNumber > 0) { //add template and input validation
             System.out.println("\n Thank you for using your account. ");
         } else {
-            System.out.println("\n You need to write your account number");
+            System.out.println("\n You need to write your account number.");
         }
 
 
@@ -64,10 +64,11 @@ public class PersonalFinanceApp {
         String accountName = scanner.next();
 
         if (!accountName.trim().isEmpty()) {
-            System.out.println("\n Your account name is " + accountName);
+            System.out.println("\n Your account name is " + accountName + ".");
         } else {
-            System.out.println("\n You need to write your account name");
+            System.out.println("\n You need to write your account name.");
         }
+
         AccountHolder accountHolder = new AccountHolder(personalIDHolder, accountHolderName, accountHolderPhoneNumber, accountHolderAge);
         PersonalAccountOfMoney personalAccountOfMoney = new PersonalAccountOfMoney(accountName, accountNumber);
         Integer nextTransactionID = 1;
@@ -198,15 +199,19 @@ public class PersonalFinanceApp {
                             personalAccountOfMoney.viewStatisticsDaily("income");
                             break;
                     }
+
                     break;
+
                 case 6:
                     System.out.println("Information about the accountholder.");
                     accountHolder.accountHolderInformation();
+
                     break;
 
 
                 default:
                     System.out.println("Select an option");
+                    
                     break;
 
             }
