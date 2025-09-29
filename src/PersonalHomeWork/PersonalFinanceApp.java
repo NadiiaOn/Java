@@ -211,7 +211,7 @@ public class PersonalFinanceApp {
 
                 default:
                     System.out.println("Select an option");
-                    
+
                     break;
 
             }
