@@ -32,7 +32,7 @@ public class AccountHolder {
     }
 
 
-    public void accountHolderInformation () {
+    public void printAccountHolderInformation() {
         System.out.println( "Accountholder personal ID is " + getPersonalIDHolder() + ".");
         System.out.println("Accountholder name is " + getName() + ".");
         System.out.println("Accountholder Phone number is " + getPhoneNumber() + ".");

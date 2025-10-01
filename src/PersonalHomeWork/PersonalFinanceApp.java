@@ -204,7 +204,7 @@ public class PersonalFinanceApp {
 
                 case 6:
                     System.out.println("Information about the accountholder.");
-                    accountHolder.accountHolderInformation();
+                    accountHolder.printAccountHolderInformation();
 
                     break;
 
