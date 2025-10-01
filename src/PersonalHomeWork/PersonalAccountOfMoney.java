@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 public class PersonalAccountOfMoney {
 
-    private Integer accountID;
+    private int accountID;
     private String accountName;
-    private Long accountNumber;
+    private long accountNumber;
     private BigDecimal accountBalance;
     private ArrayList<Transaction> transactions;
 
@@ -17,7 +17,7 @@ public class PersonalAccountOfMoney {
         return accountID;
     }
 
-    public void setAccountID(Integer accountID) {
+    public void setAccountID(int accountID) {
         this.accountID = accountID;
     }
 
@@ -33,7 +33,7 @@ public class PersonalAccountOfMoney {
         return accountNumber;
     }
 
-    public void setAccountNumber(Long accountNumber) {
+    public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -53,7 +53,7 @@ public class PersonalAccountOfMoney {
         this.transactions = transactions;
     }
 
-    public PersonalAccountOfMoney(String accountName, Long accountNumber) {
+    public PersonalAccountOfMoney(String accountName, long accountNumber) {
         this.accountID = 1;
         this.accountName = accountName;
         this.accountNumber = accountNumber;
@@ -61,11 +61,11 @@ public class PersonalAccountOfMoney {
         this.transactions = new ArrayList<>();
     }
 
-    public void viewCurrentBalance() {
+    public void printCurrentBalance() {
         System.out.println("The current balance is " + accountBalance);
     }
 
-    public void viewExpense() {
+    public void printExpense() {
         BigDecimal totalExpense = BigDecimal.ZERO;
         for (Transaction t : transactions) {
             if (t.getTransactionType().equals("expense")) {
@@ -76,7 +76,7 @@ public class PersonalAccountOfMoney {
 
     }
 
-    public void viewIncome() {
+    public void printIncome() {
         BigDecimal totalIncome = BigDecimal.ZERO;
         for (Transaction t : transactions) {
             if (t.getTransactionType().equals("income")) {
@@ -114,13 +114,13 @@ public class PersonalAccountOfMoney {
         System.out.println("Transaction ID incorrect. Write the correct ID.");
     }
 
-    public void viewTheListOfTransactions() {
+    public void printTheListOfTransactions() {
         for (Transaction t : transactions) {
             t.viewTransactionDetails();
         }
     }
 
-    public void viewStatisticsDaily(String transactionType) {
+    public void printStatisticsDaily(String transactionType) {
 
         HashMap<String, BigDecimal> statistics = new HashMap<>();
 
@@ -145,7 +145,7 @@ public class PersonalAccountOfMoney {
         }
     }
 
-    public void viewStatisticsMonthly(String transactionType) {
+    public void printStatisticsMonthly(String transactionType) {
 
         HashMap<String, BigDecimal> statistics = new HashMap<>();
 
@@ -170,7 +170,7 @@ public class PersonalAccountOfMoney {
         }
     }
 
-    public void viewStatisticsYearly(String transactionType) {
+    public void printStatisticsYearly(String transactionType) {
 
         HashMap<String, BigDecimal> statistics = new HashMap<>();
 
@@ -195,7 +195,7 @@ public class PersonalAccountOfMoney {
         }
     }
 
-    public void viewStatisticsWeekly(String transactionType) {
+    public void printStatisticsWeekly(String transactionType) {
 
         HashMap<String, BigDecimal> statistics = new HashMap<>();
 

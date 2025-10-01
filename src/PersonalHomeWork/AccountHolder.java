@@ -2,41 +2,41 @@ package PersonalHomeWork;
 
 public class AccountHolder {
 
-    private Long personalIDHolder;
-    private String accountHolderName;
-    private Long accountHolderPhoneNumber;
-    private Byte accountHolderAge;
+    private long personalIDHolder;
+    private String name;
+    private long phoneNumber;
+    private byte age;
 
-    public AccountHolder(Long personalIDHolder, String accountHolderName, Long accountHolderPhoneNumber, Byte accountHolderAge) {
+    public AccountHolder(long personalIDHolder, String name, long phoneNumber, byte age) {
 
         this.personalIDHolder = personalIDHolder;
-        this.accountHolderName = accountHolderName;
-        this.accountHolderPhoneNumber = accountHolderPhoneNumber;
-        this.accountHolderAge = accountHolderAge;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
     }
 
-    public String getAccountHolderName() {
-        return accountHolderName;
+    public String getName() {
+        return name;
     }
 
-    public Long getAccountHolderPhoneNumber() {
-        return accountHolderPhoneNumber;
+    public long getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public Byte getAccountHolderAge() {
-        return accountHolderAge;
+    public byte getAge() {
+        return age;
     }
 
-    public Long getPersonalIDHolder() {
+    public long getPersonalIDHolder() {
         return personalIDHolder;
     }
 
 
     public void accountHolderInformation () {
         System.out.println( "Accountholder personal ID is " + getPersonalIDHolder() + ".");
-        System.out.println("Accountholder name is " + getAccountHolderName() + ".");
-        System.out.println("Accountholder Phone number is " + getAccountHolderPhoneNumber() + ".");
-        System.out.println("Accountholder Age is " + getAccountHolderAge() + ".");
+        System.out.println("Accountholder name is " + getName() + ".");
+        System.out.println("Accountholder Phone number is " + getPhoneNumber() + ".");
+        System.out.println("Accountholder Age is " + getAge() + ".");
     }
 
 }

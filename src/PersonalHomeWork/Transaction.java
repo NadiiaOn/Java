@@ -11,7 +11,7 @@ public class Transaction {
     private LocalDate date;
     private String description;
 
-    public Transaction(int transactionID, String transactionType, BigDecimal amount, LocalDate date, String description) {
+    public Transaction(Integer transactionID, String transactionType, BigDecimal amount, LocalDate date, String description) {
         this.transactionID = transactionID;
         this.transactionType = transactionType; // think about this I need it or not
         this.amount = amount;
@@ -23,7 +23,7 @@ public class Transaction {
         return transactionID;
     }
 
-    public void setTransactionID(Integer transactionID) {
+    public void setTransactionID(int transactionID) {
         this.transactionID = transactionID;
     }
 

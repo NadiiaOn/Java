@@ -15,7 +15,7 @@ public class PersonalFinanceApp {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n Write your personal ID: ");
-        Long personalIDHolder = scanner.nextLong();
+        long personalIDHolder = scanner.nextLong();
         if (personalIDHolder > 99999999999L) {  //add template
             System.out.println("\n Thank you for your ID. ");
         } else {
@@ -33,7 +33,7 @@ public class PersonalFinanceApp {
 
 
         System.out.println("\n What is your phone number? ");
-        Long accountHolderPhoneNumber = scanner.nextLong();
+        long accountHolderPhoneNumber = scanner.nextLong();
 
         if (accountHolderPhoneNumber > 999999999L) { //add template
             System.out.println("\n This is your number " + accountHolderPhoneNumber);
@@ -42,7 +42,7 @@ public class PersonalFinanceApp {
         }
 
         System.out.println("\n How old are you? ");
-        Byte accountHolderAge = scanner.nextByte();
+        byte accountHolderAge = scanner.nextByte();
 
         if (accountHolderAge >= 18 && accountHolderAge <= 120) {
             System.out.println("\n You have the legal right to manage your account.");
@@ -51,7 +51,7 @@ public class PersonalFinanceApp {
         }
 
         System.out.println("\n Write your account number: ");
-        Long accountNumber = scanner.nextLong();
+        long accountNumber = scanner.nextLong();
 
         if (accountNumber > 0) { //add template and input validation
             System.out.println("\n Thank you for using your account. ");
@@ -125,7 +125,7 @@ public class PersonalFinanceApp {
 
                 case 2:
                     System.out.println("What transactions would you like to delete? ");
-                    personalAccountOfMoney.viewTheListOfTransactions();
+                    personalAccountOfMoney.printTheListOfTransactions();
                     int transactionToDeleteID = keyboard.nextInt();
                     personalAccountOfMoney.removeTransaction(transactionToDeleteID);
 
@@ -142,28 +142,28 @@ public class PersonalFinanceApp {
                             "2. monthly, \n" +
                             "3. weekly, \n" +
                             "4. daily.");
-                    personalAccountOfMoney.viewExpense();
+                    personalAccountOfMoney.printExpense();
 
                     int periodOfExpense = keyboard.nextInt();
                     switch (periodOfExpense) {
                         case 1:
                             System.out.println("The expense yearly is ");
-                            personalAccountOfMoney.viewStatisticsYearly("expense");
+                            personalAccountOfMoney.printStatisticsYearly("expense");
                             break;
 
                         case 2:
                             System.out.println("The expense monthly is ");
-                            personalAccountOfMoney.viewStatisticsMonthly("expense");
+                            personalAccountOfMoney.printStatisticsMonthly("expense");
                             break;
 
                         case 3:
                             System.out.println("The expense weekly is ");
-                            personalAccountOfMoney.viewStatisticsWeekly("expense");
+                            personalAccountOfMoney.printStatisticsWeekly("expense");
                             break;
 
                         case 4:
                             System.out.println("The expense daily is ");
-                            personalAccountOfMoney.viewStatisticsDaily("expense");
+                            personalAccountOfMoney.printStatisticsDaily("expense");
                             break;
                     }
 
@@ -175,28 +175,28 @@ public class PersonalFinanceApp {
                             "2. monthly, \n" +
                             "3. weekly,\n " +
                             "4. daily.\n ");
-                    personalAccountOfMoney.viewIncome();
+                    personalAccountOfMoney.printIncome();
 
                     int periodOfIncome = keyboard.nextInt();
                     switch (periodOfIncome) {
                         case 1:
                             System.out.println("The income annually is ");
-                            personalAccountOfMoney.viewStatisticsYearly("income");
+                            personalAccountOfMoney.printStatisticsYearly("income");
                             break;
 
                         case 2:
                             System.out.println("The income monthly is ");
-                            personalAccountOfMoney.viewStatisticsMonthly("income");
+                            personalAccountOfMoney.printStatisticsMonthly("income");
                             break;
 
                         case 3:
                             System.out.println("The income weekly is ");
-                            personalAccountOfMoney.viewStatisticsWeekly("income");
+                            personalAccountOfMoney.printStatisticsWeekly("income");
                             break;
 
                         case 4:
                             System.out.println("The income daily is ");
-                            personalAccountOfMoney.viewStatisticsDaily("income");
+                            personalAccountOfMoney.printStatisticsDaily("income");
                             break;
                     }
 
